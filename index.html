@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic tac toe</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Tic Tac toe</div>
+        <div class="content">
+            <div class="result">Player Win</div>
+            <div class="midContent">
+                <div class="scoreboardL">
+                    <div>Player 1 </div>
+                    <div class="scoreX">0</div>
+                </div>
+                <div class="board">
+                    <div class="box box1" id="1"></div>
+                    <div class="box box2" id="2"></div>
+                    <div class="box box3" id="3"></div>
+                    <div class="box box4" id="4"></div>
+                    <div class="box box5" id="5"></div>
+                    <div class="box box6" id="6"></div>
+                    <div class="box box7" id="7"></div>
+                    <div class="box box8" id="8"></div>
+                    <div class="box box9" id="9"></div>
+                </div>
+                <div class="scoreboardR">
+                    <div>Player 2 </div>
+                    <div class="scoreO">0</div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="footer">@Kayn019</div>
+    </div>
+
+    <dialog id="Dialog">
+        <p class="result">Player win</p>
+          <form>
+            <p>Do you want to play again?</p>
+
+              <button value="cancel" formmethod="dialog">Cancel</button>
+              <button id="confirmBtn" value="default">Confirm</button>
+            </div>
+          </form>
+        </dialog>
+</body>
+</html>
