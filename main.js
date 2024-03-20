@@ -53,6 +53,16 @@ function gameBoard(){
             win();
             if(isOver){
                 dialog.showModal();
+            }else{
+                if(board.includes(0) == false && isOver == false){
+            
+                    document.querySelectorAll(".result").forEach((p) =>{
+                        p.textContent = "It's a draw!";
+                        p.style.cssText = "visibility: visible;";
+                    });
+                    isOver = true;
+                    return;
+                }
             }
             
             
@@ -84,11 +94,14 @@ function win(){
 
         let totalDia2 = board[2] + board[4] + board[6];
         checkWin(totalDia2);
-        
+    
     }
 
+
     function checkWin(total){
+        console.log(isOver);
         if(total == 3 && isOver == false){
+            isOver = true;
             console.log("playerx wins");
             playerX.score++;
             document.querySelector(".scoreX").textContent = playerX.score;
@@ -96,10 +109,12 @@ function win(){
                 p.textContent = "Player 1 Wins";
                 p.style.cssText = "visibility: visible;";
             });
-            isOver = true;
-            dialog.showModal();
+            
+            return;
+            
 
         }else if(total == 12 && isOver == false){
+            isOver = true;
             console.log("playerO win");
             playerO.score++;
             document.querySelector(".scoreO").textContent = playerO.score;
@@ -107,9 +122,10 @@ function win(){
                 p.textContent = "Player 2 Wins";
                 p.style.cssText = "visibility: visible;";
             });
-            isOver = true;
-            dialog.showModal();
-    }
+            
+            return;
+            
+        }
 
 }
 
@@ -135,7 +151,7 @@ const confirmBtn = dialog.querySelector("#confirmBtn");
 
 // Prevent the "confirm" button from the default behavior of submitting the form, and close the dialog with the `close()` method, which triggers the "close" event.
 confirmBtn.addEventListener("click", (event) => {
-  event.preventDefault(); // We don't want to submit this fake form
+  event.preventDefault(); // We don't want to submit the form
   dialog.close();
   resetGame();
   gameController(); //start the game new
